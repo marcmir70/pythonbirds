@@ -5,15 +5,17 @@ class Pessoa:
         self.filhos = list(filhos)
 
     def cumprimentar(self):
-        return f'Olá {id(self)}'
+        return f'Olá, {self.nome} -id:{id(self)}'
 
 if __name__ == '__main__':
-    arthur = Pessoa(nome='Arthur')
-    marcelo = Pessoa(arthur, nome='Marcelo') # arthur filho de marcelo
+    mell = Pessoa(nome='Mell', idade=26)
+    thu = Pessoa(nome='Thu', idade=21)
+    marcelo = Pessoa(mell, thu, nome='Marcelo') # mell e thu filhos de marcelo
     print(Pessoa.cumprimentar(marcelo))
     print(id(marcelo))
     print(marcelo.cumprimentar())
     print(marcelo.nome)
     print(marcelo.idade)
+    print('filhos...')
     for filho in marcelo.filhos:
-        print(filho.nome)
+        print(f' - id:{id(filho)}, nome:{filho.nome}, {filho.idade} anos')
